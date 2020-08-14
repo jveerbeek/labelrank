@@ -2,6 +2,7 @@
  A simple Python implementation of the LabelRank method proposed by Bin Fu (2018) in ['Learning label dependency for multi-label classification'](https://opus.lib.uts.edu.au/bitstream/10453/123252/2/02whole.pdf). Exploits multi-label dependencies using only the co-occurences of labels in the training set, and can thus be used for any model that produces probabilities.      
 
 ### Dependencies:
+* numpy
 * scikit-learn
 * [scikit-multilearn](http://scikit.ml/index.html)
 
