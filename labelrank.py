@@ -41,7 +41,7 @@ class LabelRank:
                 p_x_t_1 = self.a * self.T.dot(p_x_t) + ((1 - self.a) * proba)
                 diff = (p_x_t_1 - p_x_t) / p_x_t_1 * 100
                 p_x_t = p_x_t_1
-                if sum(abs(diff)) < 0.01:
+                if sum(abs(diff)) < self.tol:
                     transformed_probas.append(p_x_t)
                     break
-        return transformed_probas
+        return np.array(transformed_probas)
