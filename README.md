@@ -1,11 +1,11 @@
- ## LabelRank
+ # LabelRank
  A simple Python implementation of the LabelRank method proposed by Bin Fu (2018) in ['Learning label dependency for multi-label classification'](https://opus.lib.uts.edu.au/bitstream/10453/123252/2/02whole.pdf). Exploits multi-label dependencies  
 
-## Dependencies:
+### Dependencies:
 * scikit-learn
 * [scikit-multilearn](http://scikit.ml/index.html)
 
-## Example usage:
+### Example usage:
 
 ```python
 from labelrank import LabelRank
