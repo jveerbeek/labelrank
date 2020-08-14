@@ -17,7 +17,7 @@ from sklearn.metrics import label_ranking_average_precision_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.multiclass import OneVsRestClassifier
 
-# Train a regular, binary relevance Logistic Regression classifier on the emotions dataset.  
+# Train a regular, binary relevance Logistic Regression classifier on the emotions dataset
 X, y, feature_names, label_names = load_dataset('emotions', 'undivided')
 X_train, X_test, y_train, y_test  = train_test_split(X, y, random_state=42, test_size=0.2)
 clf = OneVsRestClassifier(LogisticRegression(solver='liblinear', 
