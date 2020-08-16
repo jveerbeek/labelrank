@@ -34,14 +34,13 @@ class LabelRank:
         if self.T is None:
             raise NotFittedError('Model is not fitted. Fit LabelRank model first.')
         probas = np.array(probas)
+        diff = 1
         transformed_probas = []
         for proba in probas:
             p_x_t = proba
-            while True:
+            while diff > self.tol:
                 p_x_t_1 = self.a * self.T.dot(p_x_t) + ((1 - self.a) * proba)
-                diff = (p_x_t_1 - p_x_t) / p_x_t_1 * 100
+                diff = sum(abs((p_x_t_1 - p_x_t) / p_x_t_1 * 100))
                 p_x_t = p_x_t_1
-                if sum(abs(diff)) < self.tol:
-                    transformed_probas.append(p_x_t)
-                    break
+            transformed_probas.append(p_x_t)
         return np.array(transformed_probas)
