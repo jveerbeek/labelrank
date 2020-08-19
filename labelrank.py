@@ -20,7 +20,7 @@ class LabelRank:
 
 
     def fit(self, y):
-        y = np.array(y)
+        if isinstance(y, list): y = np.array(y)
         edge_map = self.graph_builder.transform(y)
         W = np.zeros((y.shape[1], y.shape[1]))
         for target, source in edge_map:
@@ -34,9 +34,9 @@ class LabelRank:
         if self.T is None:
             raise NotFittedError('Model is not fitted. Fit LabelRank model first.')
         probas = np.array(probas)
-        diff = 1
         transformed_probas = []
         for proba in probas:
+            diff = 1
             p_x_t = proba
             while diff > self.tol:
                 p_x_t_1 = self.a * self.T.dot(p_x_t) + ((1 - self.a) * proba)
